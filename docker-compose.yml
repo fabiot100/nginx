@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "80:8000"
+      - "443:8443"
+    volumes:
+      - ./nginx/conf.d/:/etc/nginx/conf.d
+      - ./logs:/var/log/nginx
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 5
+      resources:
+        limits:
+          memory: 1G
+        reservations:
+          memory: 500M
+    networks:
+      - nginx_network
+
+networks:
+  nginx_network:
+    name: nginx_network
