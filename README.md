@@ -8,7 +8,7 @@ Rename the **conf.d/nginx.conf_example** file to **conf.d/nginx.conf** and chang
 
 ## Deploy
 
-To deploy the containers, just follow the command bellow:
+To deploy the containers, just follow the command below:
 
 ```shell
 docker compose up -d
